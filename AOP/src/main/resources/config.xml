@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/context
+	                    http://www.springframework.org/schema/context/spring-context-5.0.2.xsd
+	                    http://www.springframework.org/schema/aop
+	                    http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="t1" class="kr.hs.study.beans.TestBean1"/> <!-- TestBean1가 있는 곳 -->
+    <bean id="advisor1" class="kr.hs.study.advice.AdvisorClass"/> <!--삽입할 advice있는 곳-->
+    <aop:config>
+        <aop:aspect ref="advisor1">
+            <aop:pointcut id="p1" expression="execution(* method1())"/> <!--관심사 등록-->
+            <aop:before method="beforeMethod" pointcut-ref="p1"/>
+            <!--method2에 afterMethod를 적용시켜보기 -->
+            <aop:after method="afterMethod" pointcut-ref="p1"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

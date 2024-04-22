@@ -1,0 +1,14 @@
+package kr.hs.study;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.ConcurrentModificationException;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("config.xml");
+
+
+    }
